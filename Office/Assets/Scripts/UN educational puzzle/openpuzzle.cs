@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class openpuzzle : MonoBehaviour
+public class OpenPuzzle : MonoBehaviour
 {
     public Transform player;
-    public GameObject puzzlescript;
-    public int puzzlenumber;
+    public GameObject PuzzleScript;
+    public int PuzzleNumber;
     public float Distance=5;
     // Start is called before the first frame update
     void Start()
@@ -18,17 +18,12 @@ public class openpuzzle : MonoBehaviour
     void Update()
     {
         // Vector3 dir = (this.transform.position - player.position).normalized;
-        float direction = Vector3.Dot(player.forward, transform.forward);
+        float direction = Vector3.Dot(player.forward.normalized, transform.forward.normalized);
         float distance = Vector3.Distance(player.position, this.transform.position);
-     //   Debug.Log(distance);
-        if (direction < 0 && distance <= Distance && Input.GetKeyDown(KeyCode.E))
+        if (direction >= 0.9 && distance <= Distance && Input.GetKeyDown(KeyCode.E))
         {
-
-
-            puzzlescript.GetComponent<UEPuzzleCanvas>().NumberofPuzzle = puzzlenumber;
-            puzzlescript.GetComponent<UEPuzzleCanvas>().Display(puzzlenumber);
-
-
+            PuzzleScript.GetComponent<UEPuzzleCanvas>().NumberofPuzzle = PuzzleNumber;
+            PuzzleScript.GetComponent<UEPuzzleCanvas>().Display(PuzzleNumber);
         }
     }
 

@@ -61,7 +61,6 @@ public class UEPuzzleCanvas : MonoBehaviour
         for (int i = 0; i < 10; i++)
         {
             PuzzlesPanels[i].SetActive(false);
-
         }
        
 
