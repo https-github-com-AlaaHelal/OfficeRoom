@@ -56,8 +56,6 @@ public class MemoryPuzzle : UEPuzzleCanvas
                 StartCoroutine(Hide());
             }
         }
-        if (Input.GetKeyDown(KeyCode.A))
-            StartCoroutine(ExitPuzzle());
     }
     
     void ShufflePieces()
