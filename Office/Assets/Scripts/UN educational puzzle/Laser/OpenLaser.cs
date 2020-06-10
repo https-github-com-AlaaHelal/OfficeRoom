@@ -28,11 +28,13 @@ public class OpenLaser : MonoBehaviour
             float distance = Vector3.Distance(player.position, transform.position);
             if (direction >= 0.9 && distance <= Distance && Input.GetKeyDown(KeyCode.E))
             {
+                Puzzle.GetComponent<ExitPuzzle>().Exit = false;
                 LaserPuzzleActive = true;
                 Camera.GetComponent<camera>().enabled = false;
             }
             if (Camera.GetComponent<camera>().mouseSensitivity >= 0 && LaserPuzzleActive)
-            { 
+            {
+                
                 StartCoroutine(Open());
             }
         }
@@ -52,15 +54,7 @@ public class OpenLaser : MonoBehaviour
         Camera.GetComponent<camera>().enabled = true;
         Destroy(Puzzle);
     }
-    public void OnExit()
-    {
-        Debug.Log("Clicked");
-        Puzzle.SetActive(false);
-        canvas.enabled = false;
-        Line.GetComponent<DrawLine>().redraw = true;
-        if(!Puzzle.activeSelf)
-            LaserPuzzleActive = false;
-    }
+    
     IEnumerator Open()
     {
         yield return new WaitForSeconds(0.02f);
