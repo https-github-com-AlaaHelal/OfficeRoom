@@ -5,7 +5,7 @@ using UnityEngine;
 public class camera :MonoBehaviour
 {
     public bool lockCursor;
-     float mouseSensitivity = 4;
+    public float mouseSensitivity = 4;
     public Transform target;
     public float dstFromTarget = 2;
     public Vector2 pitchMinMax = new Vector2(-40, 85);
@@ -20,6 +20,7 @@ public class camera :MonoBehaviour
     public GameObject inventoryisActive;
     public GameObject EducationalcanvasisActive;
     public GameObject puzzlecanvasisActive;
+    public GameObject LaserPuzzle;
     //public GameObject ToolBoxisActive;
     //public GameObject lockerisActive;
 
@@ -65,7 +66,8 @@ public class camera :MonoBehaviour
        // }
         if (inventoryisActive.GetComponent<showinventory>().state == true || 
             EducationalcanvasisActive.GetComponent<Educational>().educationalpuzzleisActive==true ||
-            puzzlecanvasisActive.GetComponent<UEPuzzleCanvas>().puzzlecanvasState == true   )
+            puzzlecanvasisActive.GetComponent<UEPuzzleCanvas>().puzzlecanvasState == true  ||
+            LaserPuzzle.GetComponent<OpenLaser>().LaserPuzzleActive == true)
         {
             mouseSensitivity = 0;
 
