@@ -8,6 +8,9 @@ public class CollectingItems : MonoBehaviour
     public int LayerMask = 1 << 11;
     public Item item;
     public Information information;
+    public GameObject Inventory;
+
+    private Inventory inventory;
     private GameObject floor;
     private GameObject Player;
     private Animator PlayerAnim;
@@ -20,6 +23,7 @@ public class CollectingItems : MonoBehaviour
         PlayerAnim = Player.GetComponent<Animator>();
         floor = GameObject.FindGameObjectWithTag("Floor");
         Picked = 0;
+        inventory = Inventory.GetComponent<Inventory>();
     }
     void Update()
     {
@@ -82,7 +86,7 @@ public class CollectingItems : MonoBehaviour
     IEnumerator PickUp()
     {
         
-        bool wasPickedUp = Inventory.instance.Add(item);
+        bool wasPickedUp = inventory.Add(item);
         
         if (FindDistance() >= 3)
         {
