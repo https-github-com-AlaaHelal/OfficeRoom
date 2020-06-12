@@ -2,16 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpenPuzzle : MonoBehaviour
+public class openpuzzle : MonoBehaviour
 {
     public Transform player;
     public GameObject PuzzleScript;
-    public int PuzzleNumber;
     public float Distance=5;
+    public int PuzzleNumber;
     // Start is called before the first frame update
     void Start()
     {
-
     }
 
     // Update is called once per frame
